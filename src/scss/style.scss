@@ -1,41 +1,30 @@
 @import 'libs/bootstrap-reboot.min';
 @import 'base/variables';
-@import 'base/mixins';
-
-@font-face {
-    font-family: 'Fredoka';
-    src: url('../fonts/Fredoka-Light.woff') format('truetype');
-    font-weight: 300;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Fredoka';
-    src: url('../fonts/Fredoka-Regular.woff') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Fredoka';
-    src: url('../fonts/Fredoka-Medium.woff') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Fredoka';
-    src: url('../fonts/Fredoka-SemiBold.woff') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-}
 
 * {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Inter', sans-serif;    
     margin: 0;
     padding: 0;
+    font-size: 16px;
+    line-height: 26px;
+    color: $color-black;
 }
 
 .container {
     width: 1140px;
     margin: 0 auto;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 52px;
+    color: $color-black-title;
+}
+.subtitle {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
 }
 
 @import 'blocks/media';

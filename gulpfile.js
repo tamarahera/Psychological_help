@@ -10,20 +10,7 @@ const avif = require('gulp-avif');
 const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin');
 const newer = require('gulp-newer');
-const fonter = require('gulp-fonter');
-const ttf2woff2 = require('gulp-ttf2woff2');
 const htmlmin = require('gulp-htmlmin');
-
-function fonts() {
-    return src('src/fonts/*.*')
-        .pipe(fonter({
-            formats: ['woff', 'ttf']
-        }))
-
-        .pipe(src('dist/fonts/*.ttf'))
-        .pipe(ttf2woff2())
-        .pipe(dest('dist/fonts'))
-}
 
 function images() {
     return src(['src/images/*.*', '!src/images/*.svg'])
@@ -98,12 +85,11 @@ function building() {
 }
 
 exports.styles = styles;
-exports.fonts = fonts;
 exports.images = images;
 exports.scripts = scripts;
 exports.watching = watching;
 exports.icons = icons;
 
-exports.build = series(cleanDist, html, styles, scripts, images, icons, fonts, building);
+exports.build = series(cleanDist, html, styles, scripts, images, icons, building);
 
-exports.default = parallel(html, fonts, styles, scripts, browsersync, watching);
+exports.default = parallel(html, styles, scripts, browsersync, watching);
