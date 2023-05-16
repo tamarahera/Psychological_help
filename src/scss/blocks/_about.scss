@@ -1,0 +1,32 @@
+.about {
+    margin-top: 100px;
+    &__wrapper {
+        display: flex;
+        gap: 50px;
+        justify-content: space-between;
+        min-height: 550px;
+    }
+    &__box {
+        height: inherit;
+        width: 400px;
+        min-height: inherit;
+        &-img {
+            min-height: inherit;
+            width: inherit;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    }
+    &__info {
+        padding: 20px 20px 20px 0;
+    }
+    &__title {
+    }
+    &__subtitle {
+        margin-top: 20px;
+    }
+    &__text {
+        margin-top: 20px;
+    }
+}
