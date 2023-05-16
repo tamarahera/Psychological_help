@@ -9,9 +9,20 @@
     line-height: 26px;
     color: $color-black;
 }
-p, h1, h3 {
+
+p, h1, h3, h2, h4, h5 {
     margin: 0;
 }
+
+h4 {
+    font-size: unset;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     width: 1140px;
     margin: 0 auto;
