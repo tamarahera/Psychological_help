@@ -1,0 +1,33 @@
+.emergency {
+    margin-top: 100px;
+    text-align: center;
+    &__subtitle {
+        margin-top: 20px;
+    }
+    &__list {
+        margin-top: 15px;
+        background-color: $color-peach;
+        padding: 25px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        list-style: none;
+        flex-wrap: wrap;
+    }
+    &__item {
+        width: 235px;
+        min-height: 170px;
+        padding: 30px 20px;
+        border-radius: 10px;
+        background-color: #fff;
+        &-title {
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        &-link {
+            text-decoration: none;
+            display: inline-block;
+        }
+    }
+}
