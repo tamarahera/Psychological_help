@@ -1,0 +1,71 @@
+.header {
+    background-color: $color-blue;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 50px;
+    align-items: center;
+    padding: 25px 40px;
+    position: relative;
+    .logo {
+        &-img {
+            max-width: 30px;
+        }
+        &-text {
+            font-size: 24px;
+            line-height: 22px;
+        }
+    }
+    &__nav {
+        &-list {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            align-self: flex-end;
+        }
+        &-link {
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+        }
+    }
+    &__btn {
+        background-color: #FFD1A0;
+        color: $color-black-title;
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
+.hamburger {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    display: none;
+    z-index: 50;
+    span {
+        position: absolute;
+        border-radius: 10px;
+        height: 3px;
+        background-color: #fff;
+        right: 0;
+        transition: .2s all;
+        &:first-child {
+            top: 0;
+            width: 100%;
+        }
+        &:nth-child(2) {
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            width: 80%;
+        }
+        &:nth-child(3) {
+            bottom: 0;
+            width: 60%;
+        }
+    }
+}
+.overlay {
+    display: none;
+}
