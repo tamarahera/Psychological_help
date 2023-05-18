@@ -622,6 +622,30 @@
         <hr class="footer__divider">
         <p class="footer__rights">© 2023 Tamara Herashchenko. All Rights Reserved.</p>
     </footer>
+    <div class="modal modal--active">
+        <div class="modal__wrapper"><button class="modal__btn" type="button">
+            <span></span>
+            <span></span>
+        </button>
+        <h2 class="modal__title">Send us a request</h2>
+        <h3 class="modal__subtitle">We will answer as soon as possible</h3>
+        <form action="#" class="modal__form">
+            <label for="modal_name" class="visually-hidden">Your Name</label>
+            <input type="text" class="modal__input" id="modal_name" placeholder="Your Name"
+                name="user_name">
+
+            <label for="modal_name" class="visually-hidden">Your Email Address</label>
+            <input type="email" class="modal__input" id="modal_email" placeholder="Your Email Address"
+                name="user_email">
+
+            <label for="modal_message" class="visually-hidden">Message</label>
+            <textarea type="text" class="modal__textarea" id="modal_message" placeholder="Message"
+                name="user_message"></textarea>
+
+            <button class="button modal__button" type="submit">Send a message</button>
+        </form>
+    </div>
+    </div>
     <script src='js/script.min.js'></script>
 </body>
 
