@@ -35,7 +35,8 @@
             font-weight: 700;
             font-size: 60px;
             line-height: 60px;
-            -webkit-text-stroke: 1px $color-blue;            color: transparent;
+            -webkit-text-stroke: 1px $color-blue;            
+            color: transparent;
         }
         &:nth-child(1)::after {
             content: '01';

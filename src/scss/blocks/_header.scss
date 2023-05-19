@@ -4,7 +4,7 @@
     grid-template-columns: 1fr auto auto;
     gap: 50px;
     align-items: center;
-    padding: 25px 40px;
+    padding: 15px 40px;
     position: relative;
     .logo {
         &-img {
@@ -33,6 +33,9 @@
         color: $color-black-title;
         padding: 10px 25px;
         font-size: 14px;
+        &:hover {
+            box-shadow: unset;
+        }
     }
 }
 .hamburger {
