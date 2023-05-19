@@ -1,3 +1,4 @@
+"use strict";
 const { src, dest, watch, parallel, series } = require('gulp');
 
 const scss = require('gulp-sass')(require('sass'));
@@ -11,11 +12,12 @@ const webp = require('gulp-webp');
 const imagemin = require('gulp-imagemin');
 const newer = require('gulp-newer');
 const htmlmin = require('gulp-htmlmin');
+const webpack = require("webpack-stream");
 
 function images() {
     return src(['src/images/*.*', '!src/images/*.svg'])
         .pipe(newer('dist/images'))
-        .pipe(avif({ quality : 70}))
+        .pipe(avif({ quality: 70 }))
 
         .pipe(newer('dist/images'))
         .pipe(src('src/images/*.*'))
@@ -40,14 +42,6 @@ function html() {
         .pipe(browserSync.stream())
 };
 
-function scripts() {
-    return src('src/js/**/*.js')
-        .pipe(concat('script.min.js'))
-        .pipe(uglify())
-        .pipe(dest("dist/js"))
-        .pipe(browserSync.stream())
-}
-
 function styles() {
     return src('src/scss/*.scss')
         .pipe(autoprefixer())
@@ -60,8 +54,8 @@ function styles() {
 function watching() {
     watch(['src/scss/**/*.+(scss|sass)'], styles)
     watch(['src/images/*.*'], images)
-    watch(['src/js/**/*.js'], scripts)
     watch(['src/*.html']).on('change', html)
+    watch(["./src/js/**/*.js"], buildJs);
 }
 
 function browsersync() {
@@ -76,20 +70,52 @@ function cleanDist() {
     return src('dist')
         .pipe(clean())
 }
- 
+
 function building() {
     return src([
         'src/*.html'
-    ], {base: 'src'})
-      .pipe(dest('dist'))
+    ], { base: 'src' })
+        .pipe(dest('dist'))
 }
+
+function buildJs() {
+    return src("./src/js/main.js")
+        .pipe(webpack({
+            mode: 'development',
+            output: {
+                filename: 'script.js'
+            },
+            watch: false,
+            devtool: "source-map",
+            module: {
+                rules: [
+                    {
+                        test: /\.m?js$/,
+                        exclude: /(node_modules|bower_components)/,
+                        use: {
+                            loader: 'babel-loader',
+                            options: {
+                                presets: [['@babel/preset-env', {
+                                    debug: true,
+                                    corejs: 3,
+                                    useBuiltIns: "usage"
+                                }]]
+                            }
+                        }
+                    }
+                ]
+            }
+        }))
+        .pipe(dest('dist/js'))
+        .on("end", browserSync.reload);
+};
+
 
 exports.styles = styles;
 exports.images = images;
-exports.scripts = scripts;
 exports.watching = watching;
 exports.icons = icons;
 
-exports.build = series(cleanDist, html, styles, scripts, images, icons, building);
+exports.build = series(cleanDist, html, styles, buildJs, images, icons, building);
 
-exports.default = parallel(html, styles, scripts, browsersync, watching);
+exports.default = parallel(html, styles, buildJs, browsersync, watching);

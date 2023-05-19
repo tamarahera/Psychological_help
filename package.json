@@ -10,9 +10,8 @@
   "license": "ISC",
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "> 0.9%",
+      "not dead"
     ],
     "development": [
       "last 1 chrome version",
@@ -22,7 +21,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^9.1.2",
     "browser-sync": "^2.29.1",
+    "core-js": "^3.30.2",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-avif": "^1.1.1",
@@ -35,6 +39,8 @@
     "gulp-svg-sprite": "^2.0.3",
     "gulp-uglify-es": "^3.0.0",
     "gulp-webp": "^4.0.1",
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "webpack": "^5.83.1",
+    "webpack-stream": "^7.0.0"
   }
 }
