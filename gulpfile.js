@@ -15,12 +15,12 @@ const htmlmin = require('gulp-htmlmin');
 const webpack = require("webpack-stream");
 
 function images() {
-    return src(['src/images/*.*', '!src/images/*.svg'])
+    return src(['src/images/*.*', '!src/images/*.svg', '!src/images/meta.*'])
         .pipe(newer('dist/images'))
-        .pipe(avif({ quality: 70 }))
+        .pipe(avif({ quality : 30}))
 
         .pipe(newer('dist/images'))
-        .pipe(src('src/images/*.*'))
+        .pipe(src(['src/images/*.*', '!src/images/meta.*']))
         .pipe(webp())
 
         .pipe(newer('dist/images'))

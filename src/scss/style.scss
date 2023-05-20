@@ -76,6 +76,12 @@ ul {
     }
 }
 
+picture {
+    width: inherit;
+    height: inherit;
+    max-width: inherit;
+}
+
 @import 'blocks/header';
 @import 'blocks/promo';
 @import 'blocks/about';

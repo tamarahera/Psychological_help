@@ -86,7 +86,13 @@
                             psychotherapist exactly for you. Start a new life and gain peace of mind.</p>
                         <button class="promo__btn button" type="button" data-modal>Contact for support</button>
                     </div>
-                    <div class="promo__box"><img src="images/promo.webp" alt="woman is smiling" class="promo__box-img">
+                    <div class="promo__box">
+                        <picture>
+                            <source srcset="images/promo.avif" type="image/avif">
+                            <source srcset="images/promo.webp" type="image/webp">
+
+                            <img src="images/promo.jpg" alt="woman is smiling" class="promo__box-img">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -114,7 +120,12 @@
             <div class="container">
                 <div class="about__wrapper">
                     <div class="about__box">
-                        <img src="images/about.webp" alt="woman has a video call" class="about__box-img">
+                        <picture>
+                            <source srcset="images/about.avif" type="image/avif">
+                            <source srcset="images/about.webp" type="image/webp">
+
+                            <img src="images/about.jpg" alt="woman has a video call" class="about__box-img">
+                        </picture>
                     </div>
                     <div class="about__info">
                         <h2 class="about__title title">About us</h2>
@@ -204,8 +215,14 @@
                                 psychotherapy and additional courses in their field.</p>
                         </li>
                     </ul>
-                    <div class="interview__box"><img src="images/interview.webp" alt="interview"
-                            class="interview__box-img"></div>
+                    <div class="interview__box">
+                        <picture>
+                            <source srcset="images/interview.avif" type="image/avif">
+                            <source srcset="images/interview.webp" type="image/webp">
+
+                            <img src="images/interview.jpg" alt="interview" class="interview__box-img">
+                        </picture>
+                    </div>
                 </div>
             </div>
         </section>
@@ -220,7 +237,12 @@
                         <ul class="specialist__slides-list">
                             <li class="specialist__slides-item specialist__slides-item--active">
                                 <div class="specialist__box">
-                                    <img src="images/specialist1.webp" alt="specialist" class="specialist__box-img">
+                                    <picture>
+                                        <source srcset="images/specialist1.avif" type="image/avif">
+                                        <source srcset="images/specialist1.webp" type="image/webp">
+
+                                        <img src="images/specialist1.jpg" alt="specialist" class="specialist__box-img">
+                                    </picture>
                                 </div>
                                 <div class="specialist__info">
                                     <p class="subtitle specialist__subtitle">Anna</p>
@@ -234,7 +256,12 @@
                             </li>
                             <li class="specialist__slides-item">
                                 <div class="specialist__box">
-                                    <img src="images/specialist2.webp" alt="specialist" class="specialist__box-img">
+                                    <picture>
+                                        <source srcset="images/specialist2.avif" type="image/avif">
+                                        <source srcset="images/specialist2.webp" type="image/webp">
+
+                                        <img src="images/specialist2.jpg" alt="specialist" class="specialist__box-img">
+                                    </picture>
                                 </div>
                                 <div class="specialist__info">
                                     <p class="subtitle specialist__subtitle">Dmitry</p>
@@ -251,7 +278,12 @@
                             </li>
                             <li class="specialist__slides-item">
                                 <div class="specialist__box">
-                                    <img src="images/specialist3.webp" alt="specialist" class="specialist__box-img">
+                                    <picture>
+                                        <source srcset="images/specialist3.avif" type="image/avif">
+                                        <source srcset="images/specialist3.webp" type="image/webp">
+
+                                        <img src="images/specialist3.jpg" alt="specialist" class="specialist__box-img">
+                                    </picture>
                                 </div>
                                 <div class="specialist__info">
                                     <p class="subtitle specialist__subtitle">Lea</p>
@@ -265,12 +297,16 @@
                                         works with children's fears, tantrums, problems with peers, increased aggression
                                         and
                                         others.</p>
-
                                 </div>
                             </li>
                             <li class="specialist__slides-item">
                                 <div class="specialist__box">
-                                    <img src="images/specialist4.webp" alt="specialist" class="specialist__box-img">
+                                    <picture>
+                                        <source srcset="images/specialist4.avif" type="image/avif">
+                                        <source srcset="images/specialist4.webp" type="image/webp">
+
+                                        <img src="images/specialist4.jpg" alt="specialist" class="specialist__box-img">
+                                    </picture>
                                 </div>
                                 <div class="specialist__info">
                                     <p class="subtitle specialist__subtitle">Jane</p>
@@ -568,7 +604,12 @@
                         <button class="button contact__button" type="submit">Ask a question</button>
                     </form>
                     <div class="contact__box">
-                        <img src="images/question.webp" alt="question" class="contact__box-img">
+                        <picture>
+                            <source srcset="images/question.avif" type="image/avif">
+                            <source srcset="images/question.webp" type="image/webp">
+
+                            <img src="images/question.jpg" alt="question" class="contact__box-img">
+                        </picture>
                     </div>
                 </div>
             </div>
@@ -642,29 +683,28 @@
     </footer>
     <div class="modal">
         <div class="modal__wrapper"><button class="modal__btn" type="button">
-            <span></span>
-            <span></span>
-        </button>
-        <h2 class="modal__title">Send us a request</h2>
-        <h3 class="modal__subtitle">We will answer as soon as possible</h3>
-        <form action="#" class="modal__form">
-            <label for="modal_name" class="visually-hidden">Your Name</label>
-            <input type="text" class="modal__input" id="modal_name" placeholder="Your Name"
-                name="user_name">
+                <span></span>
+                <span></span>
+            </button>
+            <h2 class="modal__title">Send us a request</h2>
+            <h3 class="modal__subtitle">We will answer as soon as possible</h3>
+            <form action="#" class="modal__form">
+                <label for="modal_name" class="visually-hidden">Your Name</label>
+                <input type="text" class="modal__input" id="modal_name" placeholder="Your Name" name="user_name">
 
-            <label for="modal_name" class="visually-hidden">Your Email Address</label>
-            <input type="email" class="modal__input" id="modal_email" placeholder="Your Email Address"
-                name="user_email">
+                <label for="modal_name" class="visually-hidden">Your Email Address</label>
+                <input type="email" class="modal__input" id="modal_email" placeholder="Your Email Address"
+                    name="user_email">
 
-            <label for="modal_message" class="visually-hidden">Message</label>
-            <textarea type="text" class="modal__textarea" id="modal_message" placeholder="Message"
-                name="user_message"></textarea>
+                <label for="modal_message" class="visually-hidden">Message</label>
+                <textarea type="text" class="modal__textarea" id="modal_message" placeholder="Message"
+                    name="user_message"></textarea>
 
-            <button class="button modal__button" type="submit">Send a message</button>
-        </form>
+                <button class="button modal__button" type="submit">Send a message</button>
+            </form>
+        </div>
     </div>
-    </div>
-    <script src='js/script.min.js'></script>
+    <script src='js/script.js'></script>
 </body>
 
 </html>
