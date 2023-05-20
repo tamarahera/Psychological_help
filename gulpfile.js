@@ -24,7 +24,10 @@ function images() {
         .pipe(webp())
 
         .pipe(newer('dist/images'))
-        .pipe(src('src/images/*.*'))
+        .pipe(src(['src/images/*.*', '!src/images/meta.*']))
+        .pipe(imagemin())
+
+        .pipe(src('src/images/meta.*'))
         .pipe(imagemin())
 
         .pipe(dest('dist/images'))
