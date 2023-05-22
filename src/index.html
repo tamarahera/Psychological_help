@@ -590,16 +590,16 @@
                 <div class="contact__wrapper">
                     <form action="#" class="contact__form">
                         <label for="question_name" class="visually-hidden">Your Name</label>
-                        <input type="text" class="contact__input" id="question_name" placeholder="Your Name"
+                        <input required type="text" class="contact__input" id="question_name" placeholder="Your Name"
                             name="user_name">
 
                         <label for="question_name" class="visually-hidden">Your Email Address</label>
-                        <input type="email" class="contact__input" id="question_email" placeholder="Your Email Address"
-                            name="user_email">
+                        <input required type="email" class="contact__input" id="question_email"
+                            placeholder="Your Email Address" name="user_email">
 
                         <label for="question_message" class="visually-hidden">Message</label>
-                        <textarea type="text" class="contact__textarea" id="question_message" placeholder="Message"
-                            name="user_message"></textarea>
+                        <textarea required type="text" class="contact__textarea" id="question_message"
+                            placeholder="Message" name="user_message"></textarea>
 
                         <button class="button contact__button" type="submit">Ask a question</button>
                     </form>
@@ -689,16 +689,21 @@
             </button>
             <h2 class="modal__title">Send us a request</h2>
             <h3 class="modal__subtitle">We will answer as soon as possible</h3>
-            <form action="#" class="modal__form">
+            <form action="#" class="modal__form" data-form="modal">
                 <label for="modal_name" class="visually-hidden">Your Name</label>
-                <input type="text" class="modal__input" id="modal_name" placeholder="Your Name" name="user_name">
+                <input required type="text" class="modal__input" id="modal_name" placeholder="Your Name"
+                    name="user_name">
 
                 <label for="modal_name" class="visually-hidden">Your Email Address</label>
-                <input type="email" class="modal__input" id="modal_email" placeholder="Your Email Address"
+                <input required type="email" class="modal__input" id="modal_email" placeholder="Your Email Address"
                     name="user_email">
 
+                <label for="modal_phone" class="visually-hidden">Your Phone Number</label>
+                <input required type="text" class="modal__input" id="modal_phone" placeholder="Your Phone Number"
+                    name="user_phone">
+
                 <label for="modal_message" class="visually-hidden">Message</label>
-                <textarea type="text" class="modal__textarea" id="modal_message" placeholder="Message"
+                <textarea required type="text" class="modal__textarea" id="modal_message" placeholder="Message"
                     name="user_message"></textarea>
 
                 <button class="button modal__button" type="submit">Send a message</button>

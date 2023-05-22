@@ -2,6 +2,68 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/modules/forms.js":
+/*!*********************************!*\
+  !*** ./src/js/modules/forms.js ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const forms = () => {
+  const form = document.querySelectorAll('form'),
+    inputs = document.querySelectorAll('input'),
+    textareas = document.querySelectorAll('textarea'),
+    inputPhone = document.querySelector('input[name="user_phone"]');
+  inputPhone.addEventListener('input', () => {
+    inputPhone.value = inputPhone.value.replace(/[^-0-9\+\(\)]/, '');
+  });
+  const message = {
+    loading: 'Loading...',
+    success: 'Thanks! We will answer as soon as possible.',
+    error: 'Something goes wrong.'
+  };
+  const postData = async (url, data) => {
+    document.querySelector('.status').textContent = message.loading;
+    let result = await fetch(url, {
+      method: 'POST',
+      body: data
+    });
+    return await result.text();
+  };
+  const resetInputs = () => {
+    inputs.forEach(item => {
+      item.value = '';
+    });
+    textareas.forEach(item => {
+      item.value = '';
+    });
+  };
+  form.forEach(item => {
+    item.addEventListener('submit', e => {
+      e.preventDefault();
+      let statusMessage = document.createElement('div'); // ств блок, а який вставимо повідомлення для корист
+      statusMessage.classList.add('status');
+      item.appendChild(statusMessage);
+      const formData = new FormData(item); // або JSON
+
+      postData('server.php', formData).then(result => {
+        console.log(result);
+        statusMessage.textContent = message.success;
+      }).catch(() => {
+        statusMessage.textContent = message.error;
+      }).finally(() => {
+        resetInputs();
+        setTimeout(() => {
+          statusMessage.remove();
+        }, 4000);
+      });
+    });
+  });
+};
+/* harmony default export */ __webpack_exports__["default"] = (forms);
+
+/***/ }),
+
 /***/ "./src/js/modules/hamburger.js":
 /*!*************************************!*\
   !*** ./src/js/modules/hamburger.js ***!
@@ -49,7 +111,6 @@ const modals = () => {
       modal = document.querySelector(modalSelector),
       close = document.querySelector(closeSelector),
       scroll = calcScroll();
-    console.log(scroll);
     trigger.forEach(item => {
       item.addEventListener('click', e => {
         if (e.target) {
@@ -145,11 +206,16 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_modals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modals */ "./src/js/modules/modals.js");
 /* harmony import */ var _modules_hamburger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/hamburger */ "./src/js/modules/hamburger.js");
+/* harmony import */ var _modules_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/forms */ "./src/js/modules/forms.js");
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
+  'use strict';
+
   (0,_modules_modals__WEBPACK_IMPORTED_MODULE_0__["default"])();
   (0,_modules_hamburger__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  (0,_modules_forms__WEBPACK_IMPORTED_MODULE_2__["default"])();
 });
 }();
 /******/ })()

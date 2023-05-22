@@ -113,12 +113,18 @@ function buildJs() {
         .on("end", browserSync.reload);
 };
 
+function php() {
+    return src('src/*.php')
+    .pipe(dest('dist/'))
+    .pipe(browserSync.stream())
+}
+
 
 exports.styles = styles;
 exports.images = images;
 exports.watching = watching;
 exports.icons = icons;
 
-exports.build = series(cleanDist, html, styles, buildJs, images, icons, building);
+exports.build = series(cleanDist, html, php, styles, buildJs, images, icons, building);
 
-exports.default = parallel(html, styles, buildJs, browsersync, watching);
+exports.default = parallel(html, php, styles, buildJs, browsersync, watching);

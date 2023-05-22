@@ -37,6 +37,9 @@
             color: rgb(211, 211, 211);
         }
     }
+    &__textarea {
+        resize: none;
+    }   
     &__button {
         width: 200px;
     }

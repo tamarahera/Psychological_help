@@ -7,6 +7,7 @@
     display: none;
     align-items: center;
     justify-content: center;
+    z-index: 60;
         &--active {
         display: flex;
         animation: show .3s forwards;
@@ -15,7 +16,7 @@
         background-color: $color-blue-light;
         max-width: 450px;
         width: 100%;
-        height: auto;
+        min-height: auto;
         padding: 20px 30px 30px;
         display: flex;
         flex-direction: column;
@@ -76,9 +77,20 @@
             font-size: 14px;
         }
     }
+    &__textarea {
+        resize: none;
+    }
     &__button {
         width: 100%;
     }
+}
+
+.status {
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    padding: 15px 15px 0;
+    color: $color-blue; 
 }
 
 @keyframes show {
