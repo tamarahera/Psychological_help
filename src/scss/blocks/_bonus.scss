@@ -41,10 +41,16 @@
         -webkit-text-stroke: 1px $color-blue;            
         color: transparent;
         font-weight: 700;
+        display: flex;
         &-item {
             font-size: 60px;
             line-height: 60px;
             color: transparent;
+            width: 80px;
+            display: block;
+            &:first-child {
+                width: 70px;
+            }
         }
     }
     &__btn {
