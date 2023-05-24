@@ -48,6 +48,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 
@@ -231,7 +232,7 @@
                 <h2 class="specialist__title title">Our specialists</h2>
                 <div class="specialist__wrapper">
                     <div class="specialist__slides">
-                        <button class="specialist__btn" type="button">
+                        <button class="specialist__btn" type="button" data-prev>
                             <img src="icons/circle-arrow-left-solid.svg" alt="arrow-left" class="specialist__btn-img">
                         </button>
                         <ul class="specialist__slides-list">
@@ -324,31 +325,29 @@
                             </li>
                             <li class="specialist__slides-item">
                                 <h4 class="subtitle">And more other +150 psychotherapists for the choose</h4>
-                                <button class="button spesialist__slides-btn" type="button">Choose a specialist</button>
+                                <button class="button spesialist__slides-btn" type="button" data-modal>Choose a specialist</button>
                             </li>
                         </ul>
-                        <button class="specialist__btn" type="button">
+                        <button class="specialist__btn" type="button" data-next>
                             <img src="icons/circle-arrow-right-solid.svg" alt="arrow-right" class="specialist__btn-img">
                         </button>
                     </div>
                     <ul class="specialist__dots">
                         <li class="specialist__dots-item">
-                            <button class="specialist__dots-btn specialist__dots-btn--active" type="button"
-                                data-slide-to="1"></button>
+                            <button class="specialist__dots-btn specialist__dots-btn--active" type="button"></button>
                         </li>
                         <li class="specialist__dots-item">
-                            <button class="specialist__dots-btn" type="button" data-slide-to="2"></button>
+                            <button class="specialist__dots-btn" type="button"></button>
                         </li>
                         <li class="specialist__dots-item">
-                            <button class="specialist__dots-btn" type="button" data-slide-to="3"></button>
+                            <button class="specialist__dots-btn" type="button"></button>
                         </li>
                         <li class="specialist__dots-item">
-                            <button class="specialist__dots-btn" type="button" data-slide-to="4"></button>
+                            <button class="specialist__dots-btn" type="button"></button>
                         </li>
                         <li class="specialist__dots-item">
-                            <button class="specialist__dots-btn" type="button" data-slide-to="5"></button>
+                            <button class="specialist__dots-btn" type="button"></button>
                         </li>
-
                     </ul>
                 </div>
             </div>
@@ -626,7 +625,9 @@
                 <div class="bonus__box">
                     <strong class="bonus__box-title">Get a 50% discount on your first consultation within 12
                         hours!</strong>
-                    <div class="bonus__timer"><span class="bonus__timer-item" id="hours">12</span>:<span class="bonus__timer-item" id="minutes">00</span>:<span class="bonus__timer-item" id="seconds">00</span>
+                    <div class="bonus__timer"><span class="bonus__timer-item" id="hours">12</span>:<span
+                            class="bonus__timer-item" id="minutes">00</span>:<span class="bonus__timer-item"
+                            id="seconds">00</span>
                     </div>
                     <button class="button bonus__btn" type="button" data-modal>Choose a specialist</button>
                 </div>

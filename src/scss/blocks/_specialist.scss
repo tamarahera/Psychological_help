@@ -23,11 +23,12 @@
         gap: 20px;
         &-list {
             list-style: none;
+            overflow-x: hidden;
         }
         &-item {
             padding: 25px;
             width: 650px;
-            min-height: 300px;
+            min-height: 310px;
             height: 100%;
             border-radius: 10px;
             border: 1px solid $color-blue-light;
@@ -78,6 +79,7 @@
         justify-content: center;
         align-items: center;
         gap: 8px;
+        height: 25px;
         &-item {
             display: flex;
             align-items:center;
