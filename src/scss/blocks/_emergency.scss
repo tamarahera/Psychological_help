@@ -7,7 +7,7 @@
     &__list {
         margin-top: 15px;
         background-color: $color-peach;
-        padding: 25px 10px;
+        padding: 25px 40px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -17,7 +17,7 @@
     }
     &__item {
         width: 235px;
-        min-height: 170px;
+        min-height: 181px;
         padding: 30px 20px;
         border-radius: 10px;
         background-color: #fff;

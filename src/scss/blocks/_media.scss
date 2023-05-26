@@ -39,9 +39,11 @@
         }
         &__box {
             margin: 0 auto;
-            max-height: 400px;
+            height: 300px;
+            width: 400px;
             &-img {
-                max-height: inherit;
+               width: inherit;
+               height: inherit;
             }
         }
     }
@@ -259,6 +261,14 @@
             width: 60%;
         }
     }
+    .emergency {
+        &__title {
+            padding: 0 10px;
+        }
+        &__subtitle {
+            padding: 0 10px;
+        }
+    }
 }
 
 @media (max-width: 576px) {
@@ -291,7 +301,7 @@
             line-height: 40px;
         }
         &__box {
-            max-width: 300px;
+            width: 300px;
         }
     }
     .benefit {
@@ -429,6 +439,11 @@
         &__wrapper {
             margin: 10px;
             padding: 10px;
+        }
+    }
+    .emergency {
+        &__list {
+            padding: 25px 10px;
         }
     }
 }

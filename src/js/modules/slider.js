@@ -57,7 +57,7 @@ const slider = (slides, prev, next) => {
                     showSlides(slideIndex);
 
                     items[slideIndex - 1].classList.remove('animate__fadeInRight');
-                    items[slideIndex - 1].classList.remove('fadeInLeft');
+                    items[slideIndex - 1].classList.remove('animate__fadeInLeft');
                     items[slideIndex - 1].classList.add('animate__fadeInDown');
                 }
             });
