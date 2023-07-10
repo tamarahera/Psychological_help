@@ -84,6 +84,18 @@ picture {
     max-height: inherit;
 }
 
+.pageup {
+	width: 40px ;
+	height: 40px;
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	z-index: 30;
+	cursor: pointer;
+    border-radius: 100%;
+    opacity: 0;
+}
+
 @import 'blocks/header';
 @import 'blocks/promo';
 @import 'blocks/about';

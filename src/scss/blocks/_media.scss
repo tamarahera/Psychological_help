@@ -213,6 +213,12 @@
     .header__menu--active>.overlay {
         left: 0;
     }
+    .pageup {
+        width: 30px ;
+        height: 30px;
+        bottom: 30px;
+        right: 30px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -445,6 +451,10 @@
         &__list {
             padding: 25px 10px;
         }
+    }
+    .pageup {
+        bottom: 20px;
+        right: 20px;
     }
 }
 @media (max-width: 500px) {
