@@ -132,6 +132,21 @@ const hamburger = () => {
 
 __webpack_require__.r(__webpack_exports__);
 const modals = () => {
+  function openModal(modalSelector, scrollNum) {
+    modalSelector.classList.add('modal--active');
+    document.body.style.overflow = 'hidden'; //прибирає скролл
+    if (window.screen.width >= 992) {
+      //скролл стрибає тільки на комп'ютерах
+      document.body.style.marginRight = `${scrollNum}px`;
+    }
+  }
+  function closeModal(modalSelector) {
+    modalSelector.classList.remove('modal--active');
+    document.body.style.overflow = '';
+    if (window.screen.width >= 992) {
+      document.body.style.marginRight = '';
+    }
+  }
   function initModal(triggerSelector, modalSelector, closeSelector) {
     const trigger = document.querySelectorAll(triggerSelector),
       modal = document.querySelector(modalSelector),
@@ -142,28 +157,20 @@ const modals = () => {
         if (e.target) {
           e.preventDefault();
         }
-        modal.classList.add('modal--active');
-        document.body.style.overflow = 'hidden'; //прибирає скролл
-        if (window.screen.width >= 992) {
-          //скролл стрибає тільки на комп'ютерах
-          document.body.style.marginRight = `${scroll}px`;
-        }
+        openModal(modal, scroll);
       });
     });
     close.addEventListener('click', () => {
-      modal.classList.remove('modal--active');
-      document.body.style.overflow = '';
-      if (window.screen.width >= 992) {
-        document.body.style.marginRight = '';
-      }
+      closeModal(modal);
     });
     modal.addEventListener('click', e => {
       if (e.target === modal) {
-        modal.classList.remove('modal--active');
-        document.body.style.overflow = '';
-        if (window.screen.width >= 992) {
-          document.body.style.marginRight = '';
-        }
+        closeModal(modal);
+      }
+    });
+    window.addEventListener('keydown', e => {
+      if (modal.classList.contains('modal--active') && e.key === 'Escape') {
+        closeModal(modal);
       }
     });
   }
@@ -181,6 +188,70 @@ const modals = () => {
   initModal('[data-modal]', '.modal__contact', '.modal__contact [data-close]');
 };
 /* harmony default export */ __webpack_exports__["default"] = (modals);
+
+/***/ }),
+
+/***/ "./src/js/modules/scrolling.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/scrolling.js ***!
+  \*************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const scrolling = (upSelector, limitElem) => {
+  const upElem = document.querySelector(upSelector);
+  let limitForShow = document.querySelector(limitElem);
+  limitForShow = Math.round(limitForShow.getBoundingClientRect().top + document.documentElement.scrollTop);
+  // document.documentElement.scrollTop -  already scrolled
+  // getBoundingClientRect().top -  position of element
+
+  window.addEventListener('scroll', () => {
+    if (document.documentElement.scrollTop > limitForShow) {
+      upElem.classList.add('animate__fadeInUp', 'animate__animated');
+      upElem.classList.remove('animate__fadeOutDown');
+    } else {
+      upElem.classList.add('animate__fadeOutDown');
+      upElem.classList.remove('animate__fadeInUp');
+    }
+  });
+
+  // scrolling with request animation frame
+
+  let links = document.querySelectorAll('[href^="#"]'),
+    speed = 0.2;
+  links.forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      let heightTop = document.documentElement.scrollTop,
+        hash = this.hash,
+        toBlock = document.querySelector(hash).getBoundingClientRect().top,
+        // верхні координати елементу
+        start = null;
+      requestAnimationFrame(step);
+      function step(time) {
+        if (start === null) {
+          start = time;
+        }
+        let progress = time - start,
+          px; // к-сть рх, яких треба пролистати протягом анімації
+
+        if (toBlock < 0) {
+          px = Math.max(heightTop - progress / speed, heightTop + toBlock);
+        } else {
+          px = Math.min(heightTop + progress / speed, heightTop + toBlock);
+        }
+        ;
+        document.documentElement.scrollTo(0, px);
+        if (px != heightTop + toBlock) {
+          requestAnimationFrame(step);
+        } else {
+          location.hash = hash;
+        }
+      }
+    });
+  });
+};
+/* harmony default export */ __webpack_exports__["default"] = (scrolling);
 
 /***/ }),
 
@@ -362,6 +433,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_timer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/timer */ "./src/js/modules/timer.js");
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
 /* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
+/* harmony import */ var _modules_scrolling__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrolling */ "./src/js/modules/scrolling.js");
+
 
 
 
@@ -377,6 +450,7 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_timer__WEBPACK_IMPORTED_MODULE_3__["default"])('.bonus__timer');
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_4__["default"])('.specialist__slides-item', '[data-prev]', '[data-next]');
   (0,_modules_accordion__WEBPACK_IMPORTED_MODULE_5__["default"])('.question__text', 'question__text--active', 'question__descr--active');
+  (0,_modules_scrolling__WEBPACK_IMPORTED_MODULE_6__["default"])('.pageup', '#about');
 });
 }();
 /******/ })()
