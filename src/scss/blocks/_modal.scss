@@ -1,16 +1,16 @@
 .modal {
     position: fixed;
+    display: flex;
     background-color: #00516ed4;
     height: 100vh;
     width: 100%;
     top: 0;
-    display: none;
     align-items: center;
     justify-content: center;
     z-index: 60;
+    animation: hide .3s forwards;
         &--active {
-        display: flex;
-        animation: show .3s forwards;
+            animation: show .3s forwards;
     }
     &__wrapper {
         background-color: $color-blue-light;
@@ -99,5 +99,14 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes hide {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }

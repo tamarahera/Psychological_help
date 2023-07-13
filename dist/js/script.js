@@ -133,6 +133,7 @@ const hamburger = () => {
 __webpack_require__.r(__webpack_exports__);
 const modals = () => {
   function openModal(modalSelector, scrollNum) {
+    modalSelector.style.display = 'flex';
     modalSelector.classList.add('modal--active');
     document.body.style.overflow = 'hidden'; //прибирає скролл
     if (window.screen.width >= 992) {
@@ -142,10 +143,13 @@ const modals = () => {
   }
   function closeModal(modalSelector) {
     modalSelector.classList.remove('modal--active');
-    document.body.style.overflow = '';
-    if (window.screen.width >= 992) {
-      document.body.style.marginRight = '';
-    }
+    setTimeout(() => {
+      modalSelector.style.display = 'none';
+      document.body.style.overflow = '';
+      if (window.screen.width >= 992) {
+        document.body.style.marginRight = '';
+      }
+    }, 350);
   }
   function initModal(triggerSelector, modalSelector, closeSelector) {
     const trigger = document.querySelectorAll(triggerSelector),
@@ -173,6 +177,7 @@ const modals = () => {
         closeModal(modal);
       }
     });
+    closeModal(modal);
   }
   function calcScroll() {
     let block = document.createElement('div');
