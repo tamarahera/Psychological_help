@@ -81,7 +81,24 @@
         resize: none;
     }
     &__button {
+        margin-top: 10px;
         width: 100%;
+    }
+
+    &__policy {
+        display: flex;
+        align-items: center;
+        label {
+            font-size: 12px;
+        }
+        &-checkbox {
+            margin-right: 8px;
+        }
+        &-link {
+            text-decoration: underline;
+            color: $color-blue;
+            font-size: inherit;
+        }
     }
 }
 

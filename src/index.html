@@ -325,7 +325,8 @@
                             </li>
                             <li class="specialist__slides-item">
                                 <h4 class="subtitle">And more other +150 psychotherapists for the choose</h4>
-                                <button class="button spesialist__slides-btn" type="button" data-modal>Choose a specialist</button>
+                                <button class="button spesialist__slides-btn" type="button" data-modal>Choose a
+                                    specialist</button>
                             </li>
                         </ul>
                         <button class="specialist__btn" type="button" data-next>
@@ -680,6 +681,7 @@
         <hr class="footer__divider">
         <p class="footer__rights">© 2023 Tamara Herashchenko. All Rights Reserved.</p>
     </footer>
+
     <div class="modal modal__contact">
         <div class="modal__wrapper">
             <button class="modal__btn" type="button" data-close>
@@ -705,13 +707,23 @@
                 <textarea required type="text" class="modal__textarea" id="modal_message" placeholder="Message"
                     name="user_message"></textarea>
 
+                <div class="modal__policy">
+                    <input class="modal__policy-checkbox" type="checkbox" required id="policy"
+                        name="policy">
+                    <label for="policy">
+                        I agree to
+                        <a class="modal__policy-link" href="policy.html" target="_blank">privacy policy</a>
+                    </label>
+                </div>
+
                 <button class="button modal__button" type="submit">Send a message</button>
             </form>
         </div>
     </div>
+
     <a href="#header" class="pageup">
         <img src="icons/circle-chevron-up-solid.svg" alt="arrow-up" class="pageup__img">
-    </a>    
+    </a>
 
     <script src='js/script.js'></script>
 </body>
