@@ -1,7 +1,7 @@
 .modal {
     position: fixed;
-    display: flex;
-    background-color: #00516ed4;
+    display: none;
+    background-color: hsla(0, 0%, 0%, 0.5);
     height: 100vh;
     width: 100%;
     top: 0;
@@ -9,8 +9,8 @@
     justify-content: center;
     z-index: 60;
     animation: hide .3s forwards;
-        &--active {
-            animation: show .3s forwards;
+    &--active {
+        animation: show .3s forwards;
     }
     &__wrapper {
         background-color: $color-blue-light;

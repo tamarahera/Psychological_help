@@ -5,6 +5,7 @@ import timer from './modules/timer';
 import slider from './modules/slider';
 import accordion from './modules/accordion';
 import scrolling from './modules/scrolling';
+import cookie from './modules/cookie';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -17,4 +18,5 @@ window.addEventListener('DOMContentLoaded', () => {
     slider('.specialist__slides-item', '[data-prev]', '[data-next]');
     accordion('.question__text', 'question__text--active', 'question__descr--active');
     scrolling('.pageup', '#about');
+    cookie();
 })

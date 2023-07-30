@@ -28,6 +28,49 @@ const accordion = (triggers, triggerActiveClass, contentActiveClass) => {
 
 /***/ }),
 
+/***/ "./src/js/modules/cookie.js":
+/*!**********************************!*\
+  !*** ./src/js/modules/cookie.js ***!
+  \**********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const cookie = () => {
+  const storageType = localStorage;
+  const consentPropertyType = 'site_consent';
+  const hasConsented = () => {
+    if (storageType.getItem(consentPropertyType) === 'true') {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  const toggleStorage = prop => {
+    // зберігаємо згоду юзера
+    storageType.setItem(consentPropertyType, prop);
+  };
+  const popup = document.querySelector('.cookie');
+  const btnCancel = popup.querySelector('[data-btn="cancel"]');
+  const btnAccept = popup.querySelector('[data-btn="accept"]');
+  if (hasConsented()) {
+    console.log('Loading...');
+  } else {
+    popup.classList.add('cookie--active');
+  }
+  btnAccept.addEventListener('click', () => {
+    toggleStorage(true);
+    popup.classList.remove('cookie--active');
+    console.log('Loading...');
+  });
+  btnCancel.addEventListener('click', () => {
+    toggleStorage(false);
+    popup.classList.remove('cookie--active');
+  });
+};
+/* harmony default export */ __webpack_exports__["default"] = (cookie);
+
+/***/ }),
+
 /***/ "./src/js/modules/forms.js":
 /*!*********************************!*\
   !*** ./src/js/modules/forms.js ***!
@@ -439,6 +482,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_slider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/slider */ "./src/js/modules/slider.js");
 /* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/accordion */ "./src/js/modules/accordion.js");
 /* harmony import */ var _modules_scrolling__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/scrolling */ "./src/js/modules/scrolling.js");
+/* harmony import */ var _modules_cookie__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/cookie */ "./src/js/modules/cookie.js");
+
 
 
 
@@ -456,6 +501,7 @@ window.addEventListener('DOMContentLoaded', () => {
   (0,_modules_slider__WEBPACK_IMPORTED_MODULE_4__["default"])('.specialist__slides-item', '[data-prev]', '[data-next]');
   (0,_modules_accordion__WEBPACK_IMPORTED_MODULE_5__["default"])('.question__text', 'question__text--active', 'question__descr--active');
   (0,_modules_scrolling__WEBPACK_IMPORTED_MODULE_6__["default"])('.pageup', '#about');
+  (0,_modules_cookie__WEBPACK_IMPORTED_MODULE_7__["default"])();
 });
 }();
 /******/ })()
