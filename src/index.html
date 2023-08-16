@@ -600,7 +600,13 @@
                         <label for="question_message" class="visually-hidden">Message</label>
                         <textarea required type="text" class="contact__textarea" id="question_message"
                             placeholder="Message" name="user_message"></textarea>
-
+                        <div class="policy">
+                            <input class="policy-checkbox" type="checkbox" required id="policy" name="policy">
+                            <label for="policy">
+                                I agree to
+                                <a class="policy-link" href="policy.html" target="_blank">privacy policy</a>
+                            </label>
+                        </div>
                         <button class="button contact__button" type="submit">Ask a question</button>
                     </form>
                     <div class="contact__box">
@@ -707,12 +713,11 @@
                 <textarea required type="text" class="modal__textarea" id="modal_message" placeholder="Message"
                     name="user_message"></textarea>
 
-                <div class="modal__policy">
-                    <input class="modal__policy-checkbox" type="checkbox" required id="policy"
-                        name="policy">
+                <div class="policy">
+                    <input class="policy-checkbox" type="checkbox" required id="policy" name="policy">
                     <label for="policy">
                         I agree to
-                        <a class="modal__policy-link" href="policy.html" target="_blank">privacy policy</a>
+                        <a class="policy-link" href="policy.html" target="_blank">privacy policy</a>
                     </label>
                 </div>
 
@@ -722,16 +727,16 @@
     </div>
 
     <div class="cookie">
-        <p class="cookie__text">This website uses cookies to ensure you get the best experience on our website. 
+        <p class="cookie__text">This website uses cookies to ensure you get the best experience on our website.
             <a class="cookie__link" href="policy.html" target="_blank">Learn more.</a>
         </p>
 
-        <button class="button cookie__btn" type="button" data-btn="cancel">Decline</button>
-        <button class="button cookie__btn" type="button" data-btn="accept">Allow cookies</button>
+        <button class="button cookie__btn" type="button" data-btn="cancel" tabindex="1">Decline</button>
+        <button class="button cookie__btn" type="button" data-btn="accept" tabindex="1">Allow cookies</button>
     </div>
 
 
-    <a href="#header" class="pageup">
+    <a href="#header" class="pageup" tabindex="1">
         <img src="icons/circle-chevron-up-solid.svg" alt="arrow-up" class="pageup__img">
     </a>
 
