@@ -54,13 +54,6 @@ function styles() {
         .pipe(browserSync.stream())
 }
 
-function copyDist() {
-    return src('dist/**')
-        .pipe(newer('dist/*'))
-        .pipe(dest('../Portfolio_github/projects/psychological-help/'))
-        .pipe(browserSync.stream())
-}
-
 function watching() {
     watch(['src/scss/**/*.+(scss|sass)'], styles)
     watch(['src/images/*.*'], images)
@@ -131,8 +124,7 @@ exports.styles = styles;
 exports.images = images;
 exports.watching = watching;
 exports.icons = icons;
-exports.copy = copyDist;
 
-exports.build = series(cleanDist, html, php, styles, buildJs, images, icons, copy, building);
+exports.build = series(cleanDist, html, php, styles, buildJs, images, icons, building);
 
-exports.default = parallel(html, php, styles, buildJs, copy, browsersync, watching);
+exports.default = parallel(html, php, styles, buildJs, browsersync, watching);

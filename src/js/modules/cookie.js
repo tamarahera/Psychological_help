@@ -1,6 +1,6 @@
 const cookie = () => {
     const storageType = localStorage;
-    const consentPropertyType = 'site_consent';
+    const consentPropertyType = 'psychological_storage';
 
     const hasConsented = () => {
         if (storageType.getItem(consentPropertyType) === 'true') {
@@ -17,7 +17,6 @@ const cookie = () => {
     const popup = document.querySelector('.cookie');
     const btnCancel = popup.querySelector('[data-btn="cancel"]');
     const btnAccept= popup.querySelector('[data-btn="accept"]');
-
 
     if (hasConsented()) {
         console.log('Loading...')
